@@ -42,8 +42,14 @@ module IOMEM (
     // Direct routing (no address decoding needed inside this module 
     // because the "traffic cop" in Datapath.v only enables this 
     // module when the address is exactly 0x1000).
+    initial begin
+        gpio_out_reg  = 16'b0;
+        gpio_in_sync1 = 16'b0;
+        gpio_in_sync2 = 16'b0;
+    end
+
     assign gpio_out = gpio_out_reg;
-    assign read_data = gpio_in_sync2;
+    assign read_data = gpio_in;
 
     // Write Logic (16-bit)
     always @(posedge clk or negedge rst_n) begin

@@ -83,7 +83,7 @@ module DataMemory (
 
     integer log_fd;
     initial begin
-        $readmemb("../test/test4.data",memory,0,7);
+        $readmemb("../test/test6.data",memory,0,7);
     end
 
     //initial begin

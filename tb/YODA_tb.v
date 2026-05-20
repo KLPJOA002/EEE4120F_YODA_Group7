@@ -138,14 +138,22 @@ module StarCore1_tb;
         // test_id = test_id + 1;
 
         
-        // //$display("Checking R1 after LD GPIO_in -> R1:");
-        // //check16(uut.DU.dm.memory[2], 16'h0003, test_id);
-        // //test_id = test_id + 1;
+        //$display("Checking R1 after LD GPIO_in -> R1:");
+        //check16(uut.DU.dm.memory[2], 16'h0003, test_id);
+        //test_id = test_id + 1;
 
-        // // LD GPIO_In R2
-        // $display("Checking R2 after LD GPIO_in -> R2:");
-        // check16(uut.DU.reg_file.reg_array[2], 16'h0004, test_id);
-        // test_id = test_id + 1;
+        // LD GPIO_In R2
+        $display("Checking R1 after LD GPIO_in -> R1:");
+        check16(uut.DU.reg_file.reg_array[1], 16'h0004, test_id);
+        test_id = test_id + 1;
+
+        $display("Checking R3 after shifting R1 by 1:");
+        check16(uut.DU.reg_file.reg_array[3],16'h0008,test_id);
+        test_id = test_id +1;
+
+        $display("Checking GPIO_out from R3 R3 -> GPIO_out:");
+        check16(gpio_out,16'h0008,test_id);
+        test_id = test_id+1;
 
         // // ADD R3, R1, R2
         // $display("Checking R4 after ADD (should be 0x0004 + 0x0001 = 0x0005):");
@@ -173,9 +181,9 @@ module StarCore1_tb;
         // test_id = test_id + 1;
 
         //Check Vector Add 00000010|10000010 to 00000010|10000001
-        $display("Checking R0 after pefrofming vector addition 00000010|10000010 to 00000010|10000001");
-        check16(uut.DU.reg_file.reg_array[0], 16'b0000010000000011,test_id);
-        test_id = test_id+1;
+        // $display("Checking R0 after pefrofming vector addition 00000010|10000010 to 00000010|10000001");
+        // check16(uut.DU.reg_file.reg_array[0], 16'b0000010000000011,test_id);
+        // test_id = test_id+1;
 
         // -----------------------------------------------------------------------
         // Print register and memory state (safe to uncomment after Task 7)
