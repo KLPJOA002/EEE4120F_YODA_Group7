@@ -68,7 +68,7 @@ module InstructionMemory (
     // -------------------------------------------------------------------------
 
     initial begin
-        $readmemb("../test/test.prog",memory,0,14);
+        $readmemb("../test/test5.prog",memory,0,14);
     end
 
     // -------------------------------------------------------------------------
