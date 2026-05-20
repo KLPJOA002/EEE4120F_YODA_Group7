@@ -15,17 +15,17 @@ This project extends that baseline in two key areas:
  
 ### 1. Vectorised ALU
  
-The standard Star-Core 1 ALU treats the full 16-bit word as a single operand. The YODA enhancement splits each 16-bit word into two 8-bit lanes and performs arithmetic/logic operations on **both lanes simultaneously**.
+The standard Star-Core 1 ALU treats the full 16-bit word as a single operand. The YODA enhancement modifies the ALU to allow for a vector mode, where each 16-bit word is seperated into two 8-bit lanes and performs arithmetic/logic operations on **both lanes simultaneously**.
  
 This allows a single instruction to compute two independent 8-bit results in parallel — a lightweight form of SIMD (Single Instruction, Multiple Data) suited to the constrained CubeSat context.
  
 **Supported vectorised operations include:**
 - Addition / Subtraction (upper byte and lower byte independently)
-- Bitwise AND / OR / XOR (per lane)
-- *(extend this list as applicable to your design)*
+- Bitwise AND / OR / Invert (per lane)
+- Logic Left and Right Shift
 ### 2. Memory-Mapped GPIO
  
-The data memory has been extended to include a **memory-mapped I/O region** that exposes GPIO pins on the FPGA. Software running on the CPU can read from and write to these registers using standard load/store instructions, with no additional hardware instructions required.
+The data memory has been extended to include a **memory-mapped I/O address of 0x0008** that exposes 32 GPIO pins (16 input and 16 output) on the FPGA. Software running on the CPU can read from and write to this memory address using standard load/store instructions, with no additional hardware instructions required.
  
 This makes it straightforward to interface with on-board peripherals such as LEDs, buttons, or sensors connected to the FPGA.
 
@@ -34,8 +34,8 @@ This makes it straightforward to interface with on-board peripherals such as LED
  
 | Name | Student Number |
 |---|---|
+| *Alex Hillman* | *HILALE010* |
 | *Joab Gray Kloppers* | *KLPJOA002* |
-| *(Team member)* | *(e.g. GPIO Memory Mapping)* |
-| *(Team member)* | *(e.g. Testbench & Verification)* |
+| *Justin Heathcote-Marks* | *HTHJUS001* |
  
 ---
